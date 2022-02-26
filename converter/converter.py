@@ -61,6 +61,6 @@ logger = time.strftime('%H-%M-%S')
 for index, row in queue_df.iterrows():
     _input = row["path"]
     output = TARGET_PATH / "\\".join(str(_input).split("\\")[-3:]).replace(".dat", ".mp4")
-    with open(f"log/{logger}.txt", "w") as log:
+    with open(f"log/{logger}.txt", "a") as log:
         log.write(f"{time.strftime('%H:%M:%S')} - Converting '{_input}' to '{output}'\n")
     convert(_input, output)
