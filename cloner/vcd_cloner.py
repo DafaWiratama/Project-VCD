@@ -6,7 +6,8 @@ import time
 import tqdm
 import win32api
 
-from cloner.CONFIG import STORAGE_PATH
+STORAGE_PATH = f"\\\\JM-HOME-SERVER\\aini record - batch 01\\MASTER - VCD"
+
 
 drives = win32api.GetLogicalDriveStrings()
 drives = drives.split('\000')[:-1]
