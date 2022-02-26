@@ -1,9 +1,9 @@
 import os
-import path
+import pathlib
 import pandas as pd
 
-SOURCE_PATH = path.Path("\\\\JM-HOME-SERVER\\aini record - batch 01\\MASTER - VCD")
-TARGET_PATH = path.Path("\\\\JM-HOME-SERVER\\aini record - batch 01\\MASTER - MP4")
+SOURCE_PATH = pathlib.Path("\\\\JM-HOME-SERVER\\aini record - batch 01\\MASTER - VCD")
+TARGET_PATH = pathlib.Path("\\\\JM-HOME-SERVER\\aini record - batch 01\\MASTER - MP4")
 
 
 def get_tracks(path):
