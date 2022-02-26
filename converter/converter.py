@@ -45,9 +45,6 @@ def get_dataframe(tracks):
 
 
 source_df = get_dataframe(source_tracks)
-target_df = get_dataframe(target_tracks)
-
-queue_df = source_df.loc[~source_df.index.isin(target_df.index)]
 
 
 def convert(input, output):
@@ -58,9 +55,13 @@ def convert(input, output):
 
 logger = time.strftime('%H-%M-%S')
 
-for index, row in queue_df.iterrows():
+for index, row in source_df.iterrows():
     _input = row["path"]
     output = TARGET_PATH / "\\".join(str(_input).split("\\")[-3:]).replace(".dat", ".mp4")
+    if pathlib.Path(output).exists():
+        print("Skipping '{}'".format(_input))
+        continue
+
     with open(f"log/{logger}.txt", "a") as log:
         log.write(f"{time.strftime('%H:%M:%S')} - Converting '{_input}' to '{output}'\n")
     convert(_input, output)
